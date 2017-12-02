@@ -2333,13 +2333,13 @@ var Projects = function (_React$Component) {
                   'p',
                   null,
                   _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' B'
+                  ' B-'
                 ),
                 _react2.default.createElement(
                   'p',
                   null,
                   _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' C'
+                  ' C++'
                 ),
                 _react2.default.createElement(
                   'h5',
@@ -2404,7 +2404,192 @@ var Projects = function (_React$Component) {
                       'Credit Score: B'
                     )
                   ),
-                  _react2.default.createElement('div', { className: 'col-sm-3 terms' })
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-3 terms' },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'text-center' },
+                      'Total funded'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'flex-wrapper' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'single-chart' },
+                        _react2.default.createElement(
+                          'svg',
+                          { viewBox: '0 0 36 36', className: 'circular-chart orange' },
+                          _react2.default.createElement('path', { className: 'circle-bg',
+                            d: 'M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831'
+                          }),
+                          _react2.default.createElement('path', { className: 'circle',
+                            strokeDasharray: '30, 100',
+                            d: 'M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831'
+                          }),
+                          _react2.default.createElement(
+                            'text',
+                            { x: '18', y: '20.35', className: 'percentage' },
+                            '30%'
+                          )
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'text-center' },
+                      'By 4 investors'
+                    )
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'panel' },
+              _react2.default.createElement(
+                'div',
+                { className: 'panel-body' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  'SUPER HERO DELIVERY LTD'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'row' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-3' },
+                    _react2.default.createElement('img', { src: 'img/project-2.jpeg', className: 'img-responsive' })
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-6' },
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'We need 100.000\u20AC for financing the expansion in Germany.'
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'Credit Score: A'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-3 terms' },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'text-center' },
+                      'Total funded'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'flex-wrapper' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'single-chart' },
+                        _react2.default.createElement(
+                          'svg',
+                          { viewBox: '0 0 36 36', className: 'circular-chart green' },
+                          _react2.default.createElement('path', { className: 'circle-bg',
+                            d: 'M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831'
+                          }),
+                          _react2.default.createElement('path', { className: 'circle',
+                            strokeDasharray: '88, 100',
+                            d: 'M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831'
+                          }),
+                          _react2.default.createElement(
+                            'text',
+                            { x: '18', y: '20.35', className: 'percentage' },
+                            '88%'
+                          )
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'text-center' },
+                      'By 7 investors'
+                    )
+                  )
+                )
+              )
+            ),
+            _react2.default.createElement(
+              'div',
+              { className: 'panel' },
+              _react2.default.createElement(
+                'div',
+                { className: 'panel-body' },
+                _react2.default.createElement(
+                  'h3',
+                  null,
+                  'Re-clothes: Recycled clothes store'
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'row' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-3' },
+                    _react2.default.createElement('img', { src: 'img/project-3.jpeg', className: 'img-responsive' })
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-6' },
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'What we want is to create a new business line to design and launch recycled homewear, so not only we can provide clothes but also eco-friendly homewear and continuing getting more respectful with our environment.'
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      null,
+                      'Credit Score: A'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'col-sm-3 terms' },
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'text-center' },
+                      'Total funded'
+                    ),
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'flex-wrapper' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'single-chart' },
+                        _react2.default.createElement(
+                          'svg',
+                          { viewBox: '0 0 36 36', className: 'circular-chart blue' },
+                          _react2.default.createElement('path', { className: 'circle-bg',
+                            d: 'M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831'
+                          }),
+                          _react2.default.createElement('path', { className: 'circle',
+                            strokeDasharray: '16, 100',
+                            d: 'M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831'
+                          }),
+                          _react2.default.createElement(
+                            'text',
+                            { x: '18', y: '20.35', className: 'percentage' },
+                            '16%'
+                          )
+                        )
+                      )
+                    ),
+                    _react2.default.createElement(
+                      'p',
+                      { className: 'text-center' },
+                      'By 1 investors'
+                    )
+                  )
                 )
               )
             )
