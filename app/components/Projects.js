@@ -45,10 +45,57 @@ class Projects extends React.Component {
                   <option>Italy</option>
                   <option>Spain</option>
                 </select>
+
+                <p className="map">
+                      <img src="/img/map.png" className="img-responsive"/>
+                </p>
               </div>
             </div>
           </div>
           <div className="col-sm-8 loans">
+
+            <div className="panel">
+              <div className="panel-body">
+                <h3>SUPER HERO DELIVERY LTD</h3>
+                <div className="row">
+                  <div className="col-sm-3"><img src="img/project-2.jpeg" className="img-responsive"/>
+      <p className="btn-details">
+      <Link to="/details/2">
+        <button className="btn btn-primary btn-block">Details</button>
+      </Link>
+      </p>
+      </div>
+                  <div className="col-sm-6">
+                    <p>We are a fast growing delivery business. We are looking for investemnt to make the expansion in Germany.</p>
+                    <p><strong>Investment amount:</strong> 100.000€</p>
+                    <p><strong>Credit Score:</strong> A</p>
+                  </div>
+                  <div className="col-sm-3 terms">
+      <p className="text-center">Total funded</p>
+<div className="flex-wrapper">
+  <div className="single-chart">
+    <svg viewBox="0 0 36 36" className="circular-chart green">
+      <path className="circle-bg"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+      <path className="circle"
+        strokeDasharray="88, 100"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+      <text x="18" y="20.35" className="percentage">88%</text>
+    </svg>
+  </div>
+</div>
+      <p className="text-center">By 7 investors</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
 
             <div className="panel">
               <div className="panel-body">
@@ -96,47 +143,7 @@ class Projects extends React.Component {
               </div>
             </div>
 
-            <div className="panel">
-              <div className="panel-body">
-                <h3>SUPER HERO DELIVERY LTD</h3>
-                <div className="row">
-                  <div className="col-sm-3"><img src="img/project-2.jpeg" className="img-responsive"/>
-      <p className="btn-details">
-      <Link to="/details/2">
-        <button className="btn btn-primary btn-block">Details</button>
-      </Link>
-      </p>
-      </div>
-                  <div className="col-sm-6">
-                    <p>We are a fast growing delivery business. We are looking for investemnt to make the expansion in Germany.</p>
-                    <p><strong>Investment amount:</strong> 100.000€</p>
-                    <p><strong>Credit Score:</strong> A</p>
-                  </div>
-                  <div className="col-sm-3 terms">
-      <p className="text-center">Total funded</p>
-<div className="flex-wrapper">
-  <div className="single-chart">
-    <svg viewBox="0 0 36 36" className="circular-chart green">
-      <path className="circle-bg"
-        d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-      />
-      <path className="circle"
-        strokeDasharray="88, 100"
-        d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-      />
-      <text x="18" y="20.35" className="percentage">88%</text>
-    </svg>
-  </div>
-</div>
-      <p className="text-center">By 7 investors</p>
-                  </div>
-                </div>
-              </div>
-            </div>
+
 
             <div className="panel">
               <div className="panel-body">

@@ -1,43 +1,51 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
+import odometer from 'odometer';
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      invested: 0,
+      repaid: 0,
+    };
+
+    window.setTimeout(() => {
+      this.refs.invested.innerHTML = 108354147;
+      this.refs.repaid.innerHTML = 23634390;
+    }, 10);
+  }
   render() {
     return (
-      <div className="container-fluid">
+      <div className="container">
         <Messages messages={this.props.messages}/>
-        <div className="row">
-          <div className="col-sm-4">
+          <h2 className="text-center">Together we make businesses grow and your wallter too</h2>
+          <h3 className="text-center">Invest or get funded.</h3>
+        <div className="row" style={{marginTop: 40}}>
+          <div className="col-sm-6 home-card">
             <div className="panel">
               <div className="panel-body">
-                <h3>Heading</h3>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                  mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                  mollis euismod. Donec sed odio dui.</p>
-                <a href="#" role="button" className="btn btn-default">View details</a>
+                <h3>Business Owner</h3>
+                <h4>Fund your project</h4>
+                <p className="big-number">
+      <span className="odometer" ref="invested">{this.props.invested}</span>€
+      </p>
+      <h4>Already funded</h4>
+                <a href="#" role="button" className="btn btn-default">Ask</a>
               </div>
             </div>
           </div>
-          <div className="col-sm-4">
+          <div className="col-sm-6 home-card">
             <div className="panel">
               <div className="panel-body">
-                <h3>Heading</h3>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                  mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                  mollis euismod. Donec sed odio dui.</p>
-                <a href="#" role="button" className="btn btn-default">View details</a>
-              </div>
-            </div>
-          </div>
-          <div className="col-sm-4">
-            <div className="panel">
-              <div className="panel-body">
-                <h3>Heading</h3>
-                <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                  mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                  mollis euismod. Donec sed odio dui.</p>
-                <a href="#" role="button" className="btn btn-default">View details</a>
+                <h3>Investor</h3>
+                <h4>Grow your savings</h4>
+                <p className="big-number">
+      <span className="odometer" ref="repaid">{this.props.repaid}</span>€
+      </p>
+      <h4>Already funded</h4>
+                <a href="#" role="button" className="btn btn-default">Invest</a>
               </div>
             </div>
           </div>
