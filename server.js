@@ -103,7 +103,8 @@ app.use(function(req, res) {
       ));
       res.render('layout', {
         html: html,
-        initialState: store.getState()
+        initialState: store.getState(),
+        title: 'D-Fund: lending-based crowdfunding platform by Deutsche Bank'
       });
     } else {
       res.sendStatus(404);
