@@ -6,6 +6,9 @@ var moment = require('moment');
 var request = require('request');
 var qs = require('querystring');
 var User = require('../models/User');
+var Bluebird = require('bluebird');
+
+var xrequest = Bluebird.promisify(request);
 
 function generateToken(user) {
   var payload = {
@@ -27,36 +30,36 @@ exports.ensureAuthenticated = function(req, res, next) {
     res.status(401).send({ msg: 'Unauthorized' });
   }
 };
-  /**
-   * POST /login
-   * Sign in with email and password
-   */
-  exports.loginPost = function(req, res, next) {
-    req.assert('email', 'Email is not valid').isEmail();
-    req.assert('email', 'Email cannot be blank').notEmpty();
-    req.assert('password', 'Password cannot be blank').notEmpty();
-    req.sanitize('email').normalizeEmail({ remove_dots: false });
+/**
+ * POST /login
+ * Sign in with email and password
+ */
+exports.loginPost = function(req, res, next) {
+  req.assert('email', 'Email is not valid').isEmail();
+  req.assert('email', 'Email cannot be blank').notEmpty();
+  req.assert('password', 'Password cannot be blank').notEmpty();
+  req.sanitize('email').normalizeEmail({ remove_dots: false });
 
-    var errors = req.validationErrors();
+  var errors = req.validationErrors();
 
-    if (errors) {
-      return res.status(400).send(errors);
-    }
+  if (errors) {
+    return res.status(400).send(errors);
+  }
 
-    User.findOne({ email: req.body.email }, function(err, user) {
-      if (!user) {
-        return res.status(401).send({ msg: 'The email address ' + req.body.email + ' is not associated with any account. ' +
+  User.findOne({ email: req.body.email }, function(err, user) {
+    if (!user) {
+      return res.status(401).send({ msg: 'The email address ' + req.body.email + ' is not associated with any account. ' +
         'Double-check your email address and try again.'
-        });
-      }
-      user.comparePassword(req.body.password, function(err, isMatch) {
-        if (!isMatch) {
-          return res.status(401).send({ msg: 'Invalid email or password' });
-        }
-        res.send({ token: generateToken(user), user: user.toJSON() });
       });
+    }
+    user.comparePassword(req.body.password, function(err, isMatch) {
+      if (!isMatch) {
+        return res.status(401).send({ msg: 'Invalid email or password' });
+      }
+      res.send({ token: generateToken(user), user: user.toJSON() });
     });
-  };
+  });
+};
 
 /**
  * POST /signup
@@ -76,7 +79,7 @@ exports.signupPost = function(req, res, next) {
 
   User.findOne({ email: req.body.email }, function(err, user) {
     if (user) {
-    return res.status(400).send({ msg: 'The email address you have entered is already associated with another account.' });
+      return res.status(400).send({ msg: 'The email address you have entered is already associated with another account.' });
     }
     user = new User({
       name: req.body.name,
@@ -84,7 +87,7 @@ exports.signupPost = function(req, res, next) {
       password: req.body.password
     });
     user.save(function(err) {
-    res.send({ token: generateToken(user), user: user });
+      res.send({ token: generateToken(user), user: user });
     });
   });
 };
@@ -160,8 +163,8 @@ exports.unlink = function(req, res, next) {
         user.vk = undefined;
         break;
       case 'github':
-          user.github = undefined;
-        break;      
+        user.github = undefined;
+        break;
       default:
         return res.status(400).send({ msg: 'Invalid OAuth Provider' });
     }
@@ -239,7 +242,7 @@ exports.resetPost = function(req, res, next) {
   var errors = req.validationErrors();
 
   if (errors) {
-      return res.status(400).send(errors);
+    return res.status(400).send(errors);
   }
 
   async.waterfall([
@@ -279,3 +282,34 @@ exports.resetPost = function(req, res, next) {
     }
   ]);
 };
+/**
+ * POST /auth/facebook
+ * Sign in with Facebook
+ */
+exports.authDB = function(req, res) {
+  var accessTokenUrl = 'https://simulator-api.db.com/gw/oidc/token';
+  var clientId = '0d738e7c-b323-47cb-b77c-f56496250795';
+
+  var SECRET_KEY = process.env.TOKEN_SECRET;
+  var code = req.query.code;
+  var state = req.query.state;
+  var authorization = new Buffer([clientId, ':', SECRET_KEY].join('')).toString('base64')
+  const headers = {
+    'Content-Type': 'application/x-www-form-urlencoded',
+    Authorization: 'Basic ' + authorization
+  }
+
+  const params = {
+    grant_type: 'authorization_code',
+    code,
+    redirect_uri: 'http://localhost:3000/oauth'
+  }
+
+  xrequest({ method: 'POST', url: accessTokenUrl, qs: params, headers })
+    .then(({ body }) => {
+      console.log(body)
+      res.json(body);
+    })
+    .catch(console.error);
+};
+

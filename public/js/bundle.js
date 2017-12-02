@@ -306,6 +306,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.link = link;
 exports.unlink = unlink;
+exports.dbLogin = dbLogin;
 
 var _url = require('url');
 
@@ -364,11 +365,9 @@ function unlink(provider) {
 function oauth2(config, dispatch) {
   return new Promise(function (resolve, reject) {
     var params = {
-      client_id: config.clientId,
-      redirect_uri: config.redirectUri,
-      scope: config.scope,
-      display: 'popup',
-      response_type: 'code'
+      client_id: config.client_id,
+      redirect_uri: config.redirect_uri,
+      response_type: config.response_type
     };
     var url = config.authorizationUrl + '?' + _querystring2.default.stringify(params);
     resolve({ url: url, config: config, dispatch: dispatch });
@@ -381,10 +380,31 @@ function oauth1(config, dispatch) {
   });
 }
 
-function openPopup(_ref) {
+function fetchDBAuthorise(_ref) {
   var url = _ref.url,
       config = _ref.config,
       dispatch = _ref.dispatch;
+
+  console.log('requesting', url);
+  return new Promise(function (resolve, reject) {
+    return fetch(url, {
+      method: 'get',
+      headers: { 'Content-Type': 'application/json' }
+    }).then(function (response) {
+      if (response.ok) {
+        console.log('ALL OK', url, response);
+        return response.json().then(function (json) {
+          resolve({ window: window, config: config, requestToken: json, dispatch: dispatch });
+        });
+      }
+    }).catch(console.error);
+  });
+}
+
+function openPopup(_ref2) {
+  var url = _ref2.url,
+      config = _ref2.config,
+      dispatch = _ref2.dispatch;
 
   return new Promise(function (resolve, reject) {
     var width = config.width || 500;
@@ -405,17 +425,17 @@ function openPopup(_ref) {
   });
 }
 
-function getRequestToken(_ref2) {
-  var window = _ref2.window,
-      config = _ref2.config,
-      dispatch = _ref2.dispatch;
+function getRequestToken(_ref3) {
+  var window = _ref3.window,
+      config = _ref3.config,
+      dispatch = _ref3.dispatch;
 
   return new Promise(function (resolve, reject) {
     return fetch(config.url, {
       method: 'post',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify({
-        redirectUri: config.redirectUri
+        redirectUri: config.redirect_uri
       })
     }).then(function (response) {
       if (response.ok) {
@@ -427,14 +447,14 @@ function getRequestToken(_ref2) {
   });
 }
 
-function pollPopup(_ref3) {
-  var window = _ref3.window,
-      config = _ref3.config,
-      requestToken = _ref3.requestToken,
-      dispatch = _ref3.dispatch;
+function pollPopup(_ref4) {
+  var window = _ref4.window,
+      config = _ref4.config,
+      requestToken = _ref4.requestToken,
+      dispatch = _ref4.dispatch;
 
   return new Promise(function (resolve, reject) {
-    var redirectUri = _url2.default.parse(config.redirectUri);
+    var redirectUri = _url2.default.parse(config.redirect_uri);
     var redirectUriPath = redirectUri.host + redirectUri.pathname;
 
     if (requestToken) {
@@ -476,12 +496,12 @@ function pollPopup(_ref3) {
   });
 }
 
-function exchangeCodeForToken(_ref4) {
-  var oauthData = _ref4.oauthData,
-      config = _ref4.config,
-      window = _ref4.window,
-      interval = _ref4.interval,
-      dispatch = _ref4.dispatch;
+function exchangeCodeForToken(_ref5) {
+  var oauthData = _ref5.oauthData,
+      config = _ref5.config,
+      window = _ref5.window,
+      interval = _ref5.interval,
+      dispatch = _ref5.dispatch;
 
   return new Promise(function (resolve, reject) {
     var data = Object.assign({}, oauthData, config);
@@ -509,14 +529,15 @@ function exchangeCodeForToken(_ref4) {
   });
 }
 
-function signIn(_ref5) {
-  var token = _ref5.token,
-      user = _ref5.user,
-      window = _ref5.window,
-      interval = _ref5.interval,
-      dispatch = _ref5.dispatch;
+function signIn(_ref6) {
+  var token = _ref6.token,
+      user = _ref6.user,
+      window = _ref6.window,
+      interval = _ref6.interval,
+      dispatch = _ref6.dispatch;
 
   return new Promise(function (resolve, reject) {
+    console.log(token, user);
     dispatch({
       type: 'OAUTH_SUCCESS',
       token: token,
@@ -528,15 +549,31 @@ function signIn(_ref5) {
   });
 }
 
-function closePopup(_ref6) {
-  var window = _ref6.window,
-      interval = _ref6.interval;
+function closePopup(_ref7) {
+  var window = _ref7.window,
+      interval = _ref7.interval;
 
   return new Promise(function (resolve, reject) {
     clearInterval(interval);
     window.close();
     resolve();
   });
+}
+
+function dbLogin() {
+  var dbConfig = {
+    authorizationUrl: 'https://simulator-api.db.com/gw/oidc/authorize',
+    client_id: '0d738e7c-b323-47cb-b77c-f56496250795',
+    redirect_uri: 'http://localhost:3000/oauth',
+    response_type: 'code',
+    width: 580,
+    height: 400
+  };
+  console.log(dbConfig);
+
+  return function (dispatch) {
+    oauth2(dbConfig, dispatch).then(openPopup).then(pollPopup).then(exchangeCodeForToken).then(signIn).then(closePopup);
+  };
 }
 
 },{"moment":88,"querystring":95,"react-cookie":96,"react-router":133,"url":298}],4:[function(require,module,exports){
@@ -669,8 +706,6 @@ var _reactRouter = require('react-router');
 
 var _reactRedux = require('react-redux');
 
-var _auth = require('../../actions/auth');
-
 var _oauth = require('../../actions/oauth');
 
 var _Messages = require('../Messages');
@@ -678,8 +713,6 @@ var _Messages = require('../Messages');
 var _Messages2 = _interopRequireDefault(_Messages);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
@@ -693,47 +726,14 @@ var Login = function (_React$Component) {
   function Login(props) {
     _classCallCheck(this, Login);
 
-    var _this = _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
-
-    _this.state = { email: '', password: '' };
-    return _this;
+    return _possibleConstructorReturn(this, (Login.__proto__ || Object.getPrototypeOf(Login)).call(this, props));
   }
 
   _createClass(Login, [{
-    key: 'handleChange',
-    value: function handleChange(event) {
-      this.setState(_defineProperty({}, event.target.name, event.target.value));
-    }
-  }, {
-    key: 'handleLogin',
-    value: function handleLogin(event) {
+    key: 'handleDbLogin',
+    value: function handleDbLogin() {
       event.preventDefault();
-      this.props.dispatch((0, _auth.login)(this.state.email, this.state.password));
-    }
-  }, {
-    key: 'handleFacebook',
-    value: function handleFacebook() {
-      this.props.dispatch((0, _oauth.facebookLogin)());
-    }
-  }, {
-    key: 'handleTwitter',
-    value: function handleTwitter() {
-      this.props.dispatch((0, _oauth.twitterLogin)());
-    }
-  }, {
-    key: 'handleGoogle',
-    value: function handleGoogle() {
-      this.props.dispatch((0, _oauth.googleLogin)());
-    }
-  }, {
-    key: 'handleVk',
-    value: function handleVk() {
-      this.props.dispatch((0, _oauth.vkLogin)());
-    }
-  }, {
-    key: 'handleGithub',
-    value: function handleGithub() {
-      this.props.dispatch((0, _oauth.githubLogin)());
+      this.props.dispatch((0, _oauth.dbLogin)());
     }
   }, {
     key: 'render',
@@ -750,49 +750,16 @@ var Login = function (_React$Component) {
             _react2.default.createElement(_Messages2.default, { messages: this.props.messages }),
             _react2.default.createElement(
               'form',
-              { onSubmit: this.handleLogin.bind(this) },
+              { onSubmit: this.handleDbLogin.bind(this) },
               _react2.default.createElement(
                 'legend',
                 null,
                 'Log In'
               ),
               _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { htmlFor: 'email' },
-                  'Email'
-                ),
-                _react2.default.createElement('input', { type: 'email', name: 'email', id: 'email', placeholder: 'Email', autoFocus: true, className: 'form-control', value: this.state.email, onChange: this.handleChange.bind(this) })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  'label',
-                  { htmlFor: 'password' },
-                  'Password'
-                ),
-                _react2.default.createElement('input', { type: 'password', name: 'password', id: 'password', placeholder: 'Password', className: 'form-control', value: this.state.password, onChange: this.handleChange.bind(this) })
-              ),
-              _react2.default.createElement(
-                'div',
-                { className: 'form-group' },
-                _react2.default.createElement(
-                  _reactRouter.Link,
-                  { to: '/forgot' },
-                  _react2.default.createElement(
-                    'strong',
-                    null,
-                    'Forgot your password?'
-                  )
-                )
-              ),
-              _react2.default.createElement(
                 'button',
                 { type: 'submit', className: 'btn btn-success' },
-                'Log in'
+                'Log in with Deusche Bank'
               )
             ),
             _react2.default.createElement(
@@ -836,7 +803,7 @@ var mapStateToProps = function mapStateToProps(state) {
 
 exports.default = (0, _reactRedux.connect)(mapStateToProps)(Login);
 
-},{"../../actions/auth":1,"../../actions/oauth":3,"../Messages":14,"react":279,"react-redux":100,"react-router":133}],6:[function(require,module,exports){
+},{"../../actions/oauth":3,"../Messages":14,"react":279,"react-redux":100,"react-router":133}],6:[function(require,module,exports){
 'use strict';
 
 Object.defineProperty(exports, "__esModule", {
