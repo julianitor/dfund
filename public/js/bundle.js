@@ -2250,7 +2250,7 @@ var Home = function (_React$Component) {
         _react2.default.createElement(
           'h2',
           { className: 'text-center' },
-          'Together we make businesses grow and your wallter too'
+          'Together we make businesses grow and your wallet too'
         ),
         _react2.default.createElement(
           'h3',

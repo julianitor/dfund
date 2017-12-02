@@ -20,7 +20,7 @@ class Home extends React.Component {
     return (
       <div className="container">
         <Messages messages={this.props.messages}/>
-          <h2 className="text-center">Together we make businesses grow and your wallter too</h2>
+          <h2 className="text-center">Together we make businesses grow and your wallet too</h2>
           <h3 className="text-center">Invest or get funded.</h3>
         <div className="row" style={{marginTop: 40}}>
           <div className="col-sm-6 home-card">
