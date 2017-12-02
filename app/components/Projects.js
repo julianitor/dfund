@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
 import Slider from 'rc-slider';
+import { IndexLink, Link } from 'react-router';
 
 class Projects extends React.Component {
   constructor(props) {
@@ -47,16 +48,23 @@ class Projects extends React.Component {
               </div>
             </div>
           </div>
-          <div className="col-sm-8">
+          <div className="col-sm-8 loans">
 
             <div className="panel">
               <div className="panel-body">
                 <h3>FUN SPONGE LTD</h3>
                 <div className="row">
-                  <div className="col-sm-3"><img src="img/project-1.jpeg" className="img-responsive"/></div>
+                  <div className="col-sm-3"><img src="img/project-1.jpeg" className="img-responsive"/>
+      <p className="btn-details">
+      <Link to="/details/1">
+        <button className="btn btn-primary btn-block">Details</button>
+      </Link>
+      </p>
+      </div>
                   <div className="col-sm-6">
                     <p>We are looking for 50.000€ in order to buy a warehouse and cut our supply cost by 30%.</p>
-                    <p>Credit Score: B</p>
+                    <p><strong>Investment amount:</strong> 50.000€</p>
+                    <p><strong>Credit Score:</strong> B</p>
                   </div>
                   <div className="col-sm-3 terms">
 
@@ -92,10 +100,17 @@ class Projects extends React.Component {
               <div className="panel-body">
                 <h3>SUPER HERO DELIVERY LTD</h3>
                 <div className="row">
-                  <div className="col-sm-3"><img src="img/project-2.jpeg" className="img-responsive"/></div>
+                  <div className="col-sm-3"><img src="img/project-2.jpeg" className="img-responsive"/>
+      <p className="btn-details">
+      <Link to="/details/2">
+        <button className="btn btn-primary btn-block">Details</button>
+      </Link>
+      </p>
+      </div>
                   <div className="col-sm-6">
-                    <p>We need 100.000€ for financing the expansion in Germany.</p>
-                    <p>Credit Score: A</p>
+                    <p>We are a fast growing delivery business. We are looking for investemnt to make the expansion in Germany.</p>
+                    <p><strong>Investment amount:</strong> 100.000€</p>
+                    <p><strong>Credit Score:</strong> A</p>
                   </div>
                   <div className="col-sm-3 terms">
       <p className="text-center">Total funded</p>
@@ -127,10 +142,17 @@ class Projects extends React.Component {
               <div className="panel-body">
                 <h3>Re-clothes: Recycled clothes store</h3>
                 <div className="row">
-                  <div className="col-sm-3"><img src="img/project-3.jpeg" className="img-responsive"/></div>
+                  <div className="col-sm-3"><img src="img/project-3.jpeg" className="img-responsive"/>
+      <p className="btn-details">
+      <Link to="/details/3">
+        <button className="btn btn-primary btn-block">Details</button>
+      </Link>
+      </p>
+        </div>
                   <div className="col-sm-6">
                     <p>What we want is to create a new business line to design and launch recycled homewear, so not only we can provide clothes but also eco-friendly homewear and continuing getting more respectful with our environment.</p>
-                    <p>Credit Score: A</p>
+                    <p><strong>Investment amount:</strong> 30.000€</p>
+                    <p><strong>Credit Score:</strong> A</p>
                   </div>
                   <div className="col-sm-3 terms">
       <p className="text-center">Total funded</p>

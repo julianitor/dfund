@@ -29,6 +29,8 @@ $navbar-default-link-active-color: #262626;
 $panel-heading-padding: 20px 30px;
 $panel-body-padding: 30px;
 
+$brand-primary:         #3E277E;
+
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CRaleway:100,300,600,700,800");
 @import "vendor/bootstrap";
 @import "vendor/slider";
@@ -334,3 +336,44 @@ textarea {
   text-anchor: middle;
 }
 
+
+.loans .panel-body {
+  padding: 20px;
+}
+
+.loans img {
+  border-radius: 8px;
+}
+
+.terms .text-center {
+  font-size: 18px;
+}
+
+.btn-details {
+  margin-top: 15px;
+}
+
+.profile-img {
+  text-align: center;
+}
+.profile-img img {
+  max-height: 180px;
+  display: inline-block;
+}
+
+.terms-section {
+  text-align: center;
+  margin: 50px 0;
+}
+
+.terms-title, .terms-note {
+  display: block;
+}
+
+.terms-data {
+  font-size: 38px;
+}
+
+.section {
+  margin-bottom: 40px;
+}

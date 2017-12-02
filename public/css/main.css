@@ -1261,11 +1261,11 @@ mark,
   color: #777777; }
 
 .text-primary {
-  color: #337ab7; }
+  color: #3E277E; }
 
 a.text-primary:hover,
 a.text-primary:focus {
-  color: #286090; }
+  color: #2b1b57; }
 
 .text-success {
   color: #3c763d; }
@@ -1299,11 +1299,11 @@ a.text-danger:focus {
   color: #fff; }
 
 .bg-primary {
-  background-color: #337ab7; }
+  background-color: #3E277E; }
 
 a.bg-primary:hover,
 a.bg-primary:focus {
-  background-color: #286090; }
+  background-color: #2b1b57; }
 
 .bg-success {
   background-color: #dff0d8; }
@@ -2869,28 +2869,28 @@ fieldset[disabled] a.btn {
 
 .btn-primary {
   color: #fff;
-  background-color: #337ab7;
-  border-color: #2e6da4; }
+  background-color: #3E277E;
+  border-color: #34216b; }
   .btn-primary:focus, .btn-primary.focus {
     color: #fff;
-    background-color: #286090;
-    border-color: #122b40; }
+    background-color: #2b1b57;
+    border-color: #050309; }
   .btn-primary:hover {
     color: #fff;
-    background-color: #286090;
-    border-color: #204d74; }
+    background-color: #2b1b57;
+    border-color: #1d133c; }
   .btn-primary:active, .btn-primary.active,
   .open > .btn-primary.dropdown-toggle {
     color: #fff;
-    background-color: #286090;
-    border-color: #204d74; }
+    background-color: #2b1b57;
+    border-color: #1d133c; }
     .btn-primary:active:hover, .btn-primary:active:focus, .btn-primary:active.focus, .btn-primary.active:hover, .btn-primary.active:focus, .btn-primary.active.focus,
     .open > .btn-primary.dropdown-toggle:hover,
     .open > .btn-primary.dropdown-toggle:focus,
     .open > .btn-primary.dropdown-toggle.focus {
       color: #fff;
-      background-color: #204d74;
-      border-color: #122b40; }
+      background-color: #1d133c;
+      border-color: #050309; }
   .btn-primary:active, .btn-primary.active,
   .open > .btn-primary.dropdown-toggle {
     background-image: none; }
@@ -2898,10 +2898,10 @@ fieldset[disabled] a.btn {
   fieldset[disabled] .btn-primary:hover,
   fieldset[disabled] .btn-primary:focus,
   fieldset[disabled] .btn-primary.focus {
-    background-color: #337ab7;
-    border-color: #2e6da4; }
+    background-color: #3E277E;
+    border-color: #34216b; }
   .btn-primary .badge {
-    color: #337ab7;
+    color: #3E277E;
     background-color: #fff; }
 
 .btn-success {
@@ -3197,7 +3197,7 @@ tbody.collapse.in {
   color: #fff;
   text-decoration: none;
   outline: 0;
-  background-color: #337ab7; }
+  background-color: #3E277E; }
 
 .dropdown-menu > .disabled > a, .dropdown-menu > .disabled > a:hover, .dropdown-menu > .disabled > a:focus {
   color: #777777; }
@@ -3601,7 +3601,7 @@ tbody.collapse.in {
     margin-left: 2px; }
   .nav-pills > li.active > a, .nav-pills > li.active > a:hover, .nav-pills > li.active > a:focus {
     color: #fff;
-    background-color: #337ab7; }
+    background-color: #3E277E; }
 
 .nav-stacked > li {
   float: none; }
@@ -4111,8 +4111,8 @@ tbody.collapse.in {
   .pagination > .active > span:focus {
     z-index: 3;
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7;
+    background-color: #3E277E;
+    border-color: #3E277E;
     cursor: default; }
   .pagination > .disabled > span,
   .pagination > .disabled > span:hover,
@@ -4222,9 +4222,9 @@ a.label:hover, a.label:focus {
     background-color: #5e5e5e; }
 
 .label-primary {
-  background-color: #337ab7; }
+  background-color: #3E277E; }
   .label-primary[href]:hover, .label-primary[href]:focus {
-    background-color: #286090; }
+    background-color: #2b1b57; }
 
 .label-success {
   background-color: #29b35b; }
@@ -4436,7 +4436,7 @@ a.thumbnail.active {
   line-height: 21px;
   color: #fff;
   text-align: center;
-  background-color: #337ab7;
+  background-color: #3E277E;
   -webkit-box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   box-shadow: inset 0 -1px 0 rgba(0, 0, 0, 0.15);
   -webkit-transition: width 0.6s ease;
@@ -4578,8 +4578,8 @@ button.list-group-item {
 .list-group-item.active, .list-group-item.active:hover, .list-group-item.active:focus {
   z-index: 2;
   color: #fff;
-  background-color: #337ab7;
-  border-color: #337ab7; }
+  background-color: #3E277E;
+  border-color: #3E277E; }
   .list-group-item.active .list-group-item-heading,
   .list-group-item.active .list-group-item-heading > small,
   .list-group-item.active .list-group-item-heading > .small, .list-group-item.active:hover .list-group-item-heading,
@@ -4589,7 +4589,7 @@ button.list-group-item {
   .list-group-item.active:focus .list-group-item-heading > .small {
     color: inherit; }
   .list-group-item.active .list-group-item-text, .list-group-item.active:hover .list-group-item-text, .list-group-item.active:focus .list-group-item-text {
-    color: #c7ddef; }
+    color: #a793de; }
 
 .list-group-item-success {
   color: #3c763d;
@@ -4924,18 +4924,18 @@ button.list-group-item-danger {
     border-bottom-color: #ddd; }
 
 .panel-primary {
-  border-color: #337ab7; }
+  border-color: #3E277E; }
   .panel-primary > .panel-heading {
     color: #fff;
-    background-color: #337ab7;
-    border-color: #337ab7; }
+    background-color: #3E277E;
+    border-color: #3E277E; }
     .panel-primary > .panel-heading + .panel-collapse > .panel-body {
-      border-top-color: #337ab7; }
+      border-top-color: #3E277E; }
     .panel-primary > .panel-heading .badge {
-      color: #337ab7;
+      color: #3E277E;
       background-color: #fff; }
   .panel-primary > .panel-footer + .panel-collapse > .panel-body {
-    border-bottom-color: #337ab7; }
+    border-bottom-color: #3E277E; }
 
 .panel-success {
   border-color: #d6e9c6; }
@@ -6324,4 +6324,36 @@ textarea {
   font-family: sans-serif;
   font-size: 0.5em;
   text-anchor: middle; }
+
+.loans .panel-body {
+  padding: 20px; }
+
+.loans img {
+  border-radius: 8px; }
+
+.terms .text-center {
+  font-size: 18px; }
+
+.btn-details {
+  margin-top: 15px; }
+
+.profile-img {
+  text-align: center; }
+
+.profile-img img {
+  max-height: 180px;
+  display: inline-block; }
+
+.terms-section {
+  text-align: center;
+  margin: 50px 0; }
+
+.terms-title, .terms-note {
+  display: block; }
+
+.terms-data {
+  font-size: 38px; }
+
+.section {
+  margin-bottom: 40px; }
 
