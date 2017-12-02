@@ -2380,7 +2380,7 @@ var Projects = function (_React$Component) {
                 _react2.default.createElement(
                   'h3',
                   null,
-                  'Heading'
+                  'FUN SPONGE LTD'
                 ),
                 _react2.default.createElement(
                   'div',
@@ -2388,7 +2388,7 @@ var Projects = function (_React$Component) {
                   _react2.default.createElement(
                     'div',
                     { className: 'col-sm-3' },
-                    'Logo'
+                    _react2.default.createElement('img', { src: 'img/project-1.jpeg', className: 'img-responsive' })
                   ),
                   _react2.default.createElement(
                     'div',
@@ -2396,12 +2396,12 @@ var Projects = function (_React$Component) {
                     _react2.default.createElement(
                       'p',
                       null,
-                      'Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna mollis euismod. Donec sed odio dui.'
+                      'We are looking for 50.000\u20AC in order to buy a warehouse and cut our supply cost by 30%.'
                     ),
                     _react2.default.createElement(
                       'p',
                       null,
-                      'Rate: A+'
+                      'Credit Score: B'
                     )
                   ),
                   _react2.default.createElement('div', { className: 'col-sm-3 terms' })

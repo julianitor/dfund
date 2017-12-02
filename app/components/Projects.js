@@ -50,14 +50,12 @@ class Projects extends React.Component {
           <div className="col-sm-8">
             <div className="panel">
               <div className="panel-body">
-                <h3>Heading</h3>
+                <h3>FUN SPONGE LTD</h3>
                   <div className="row">
-                    <div className="col-sm-3">Logo</div>
+                    <div className="col-sm-3"><img src="img/project-1.jpeg" className="img-responsive"/></div>
                     <div className="col-sm-6">
-                      <p>Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor
-                  mauris condimentum nibh, ut fermentum massa justo sit amet risus. Etiam porta sem malesuada magna
-                  mollis euismod. Donec sed odio dui.</p>
-                    <p>Rate: A+</p>
+                      <p>We are looking for 50.000€ in order to buy a warehouse and cut our supply cost by 30%.</p>
+                      <p>Credit Score: B</p>
                     </div>
                     <div className="col-sm-3 terms">
                     </div>
