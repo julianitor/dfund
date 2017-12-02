@@ -31,6 +31,7 @@ $panel-body-padding: 30px;
 
 @import url("//fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800%7CRaleway:100,300,600,700,800");
 @import "vendor/bootstrap";
+@import "vendor/slider";
 
 // Scaffolding
 // -------------------------
@@ -249,4 +250,22 @@ textarea {
   border-radius: 2px;
   letter-spacing: 0.2em;
   text-transform: uppercase;
+}
+
+.navbar-default {
+  padding: 30px 0;
+}
+
+.navbar-brand {
+  padding: 0;
+  max-width: 200px;
+  margin-right: 40px;
+}
+
+.rc-slider-handle {
+  border-color: #3E277E;
+}
+
+.filters h5 {
+  margin-top: 20px;
 }

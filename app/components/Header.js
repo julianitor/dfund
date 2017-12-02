@@ -10,7 +10,7 @@ class Header extends React.Component {
   }
 
   render() {
-    const active = { borderBottomColor: '#3f51b5' };
+    const active = { borderBottomColor: '#3E277E' };
     const rightNav = this.props.token ? (
       <ul className="nav navbar-nav navbar-right">
         <li className="dropdown">
@@ -42,11 +42,12 @@ class Header extends React.Component {
               <span className="icon-bar"></span>
               <span className="icon-bar"></span>
             </button>
-            <IndexLink to="/" className="navbar-brand">Project name</IndexLink>
+            <IndexLink to="/" className="navbar-brand"><img src="img/logo.png" className="img-responsive" /></IndexLink>
           </div>
           <div id="navbar" className="navbar-collapse collapse">
             <ul className="nav navbar-nav">
               <li><IndexLink to="/" activeStyle={active}>Home</IndexLink></li>
+              <li><Link to="/projects" activeStyle={active}>Projects</Link></li>
               <li><Link to="/contact" activeStyle={active}>Contact</Link></li>
             </ul>
             {rightNav}
