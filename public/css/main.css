@@ -6472,4 +6472,6 @@ textarea {
     font-weight: bold;
     color: #648baf;
     margin: 20px 0; }
+    .home-card .big-number .odometer-digit, .home-card .big-number .odometer-formatting-mark {
+      font-weight: bold; }
 

@@ -394,5 +394,8 @@ textarea {
     font-weight: bold;
     color: #648baf;
     margin: 20px 0;
+    .odometer-digit, .odometer-formatting-mark {
+      font-weight: bold;
+    }
   }
 }

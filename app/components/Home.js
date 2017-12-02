@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
-import odometer from 'odometer';
 
 class Home extends React.Component {
   constructor(props) {
@@ -11,10 +10,12 @@ class Home extends React.Component {
       repaid: 0,
     };
 
-    window.setTimeout(() => {
-      this.refs.invested.innerHTML = 108354147;
-      this.refs.repaid.innerHTML = 23634390;
-    }, 10);
+    if (typeof window !== 'undefined') {
+      window.setTimeout(() => {
+        this.refs.invested.innerHTML = 108354147;
+        this.refs.repaid.innerHTML = 23634390;
+      }, 10);
+    }
   }
   render() {
     return (
@@ -26,26 +27,26 @@ class Home extends React.Component {
           <div className="col-sm-6 home-card">
             <div className="panel">
               <div className="panel-body">
-                <h3>Business Owner</h3>
+                <h2 style={{color: "brown"}}>Business Owner</h2>
                 <h4>Fund your project</h4>
                 <p className="big-number">
       <span className="odometer" ref="invested">{this.props.invested}</span>€
       </p>
       <h4>Already funded</h4>
-                <a href="#" role="button" className="btn btn-default">Ask</a>
+                <a href="/projects" role="button" className="btn btn-primary" style={{marginTop: 40}}>Get Funded</a>
               </div>
             </div>
           </div>
           <div className="col-sm-6 home-card">
             <div className="panel">
               <div className="panel-body">
-                <h3>Investor</h3>
+                <h2 style={{color: "darkcyan"}}>Investor</h2>
                 <h4>Grow your savings</h4>
                 <p className="big-number">
       <span className="odometer" ref="repaid">{this.props.repaid}</span>€
       </p>
-      <h4>Already funded</h4>
-                <a href="#" role="button" className="btn btn-default">Invest</a>
+      <h4>Already repaid</h4>
+                <a href="/projects" role="button" className="btn btn-primary" style={{marginTop: 40}}>Invest</a>
               </div>
             </div>
           </div>
