@@ -317,14 +317,21 @@ exports.authDB = function(req, res) {
       };
       return Bluebird.props({
         user: xrequest({ method: 'GET', url: BASE_URL + 'v2/partners', headers }),
+        solvency: xrequest({ method: 'GET', url: BASE_URL + 'v1/customerSolvency', headers }),
+        ageCertificate: xrequest({ method: 'GET', url: BASE_URL + 'v1/ageCertificate', headers }),
         dbToken
       });
     })
-    .then(({ user, dbToken }) => {
-      console.log(user.body)
+    .then(({ user, solvency, ageCertificate, dbToken }) => {
       const rawUser = _.get(user, 'body.partners.0');
+      const solvencyScore = _.get(solvency, 'body.score');
+      const certificate = _.get(ageCertificate, 'body.certified');
+      console.log(user.body, solvency.body, ageCertificate.body)
+      console.log(rawUser, solvencyScore, certificate)
       var user = new User({
         name: _.get(rawUser, 'naturalPerson.firstName') || 'Tom',
+        picture: '/img/tom.png',
+        solvencyScore: solvencyScore,
         lastName: _.get(rawUser, 'naturalPerson.lastName'),
         email: _.get(rawUser, 'emailAddresses.0', 'test@test.com'),
         dbToken
