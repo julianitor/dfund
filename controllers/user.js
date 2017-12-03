@@ -10,6 +10,8 @@ var Bluebird = require('bluebird');
 
 var xrequest = Bluebird.promisify(request);
 
+const BASE_URL = 'https://simulator-api.db.com/gw/dbapi/';
+
 function generateToken(user) {
   var payload = {
     iss: 'my.domain.com',
@@ -305,10 +307,29 @@ exports.authDB = function(req, res) {
     redirect_uri: 'http://localhost:3000/oauth'
   }
 
-  xrequest({ method: 'POST', url: accessTokenUrl, qs: params, headers })
+  xrequest({ method: 'POST', url: accessTokenUrl, qs: params, headers, json: true })
     .then(({ body }) => {
-      console.log(body)
-      res.json(body);
+      console.log(body.access_token)
+      const dbToken = body.access_token;
+      const headers = {
+        Authorization: 'Bearer ' + dbToken
+      };
+      return Bluebird.props({
+        user: xrequest({ method: 'GET', url: BASE_URL + 'v2/partners', headers }),
+        dbToken
+      });
+    })
+    .then(({ user, dbToken }) => {
+      console.log(user)
+      var user = new User({
+        name: req.body.name,
+        email: 'test@gmail.com',
+        dbToken
+      });
+      user.save(function(err) {
+        res.render('oauth-ack', { token: generateToken(user), user: user });
+        //res.send({ token: generateToken(user), user: user });
+      });
     })
     .catch(console.error);
 };

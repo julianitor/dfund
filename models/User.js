@@ -23,7 +23,8 @@ var userSchema = new mongoose.Schema({
   twitter: String,
   google: String,
   github: String,
-  vk: String
+  vk: String,
+  dbToken: String
 }, schemaOptions);
 
 userSchema.pre('save', function(next) {

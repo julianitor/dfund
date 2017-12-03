@@ -7,6 +7,16 @@ import configureStore from './store/configureStore';
 import getRoutes from './routes';
 
 const store = configureStore(window.INITIAL_STATE);
+window.addEventListener('message', function(event) {
+  console.log(event.data);
+  const { token, user } = event.data;
+  store.dispatch({
+    type: 'OAUTH_SUCCESS',
+    token: token,
+    user: {}
+  });
+  browserHistory.push('/');
+}, false);
 
 ReactDOM.render(
   <Provider store={store}>
