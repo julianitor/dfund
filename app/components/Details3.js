@@ -24,13 +24,13 @@ class Details3 extends React.Component {
       <div className="row">
 
       <div className="col-sm-3">
-      <h4 className="text-center">Dr. Tom Winter</h4>
+      <h4 className="text-center">Dr. Claudia Klar</h4>
       <p className="profile-img">
-      <img src="/img/tom.png" className="img-responsive"/>
+      <img src="/img/claudia.png" className="img-responsive"/>
       </p>
       <h4>Entrepreneur</h4>
-      <p>Tom did a course in Business Engineering studies at the Technical University Munich (TUM), and founded a startup right after graduating. He is currently looking for funding opportunities and is busy finding partners for his business. Being a digital native</p>
-      <p><strong>Mobile:</strong> +49 170 123456</p>
+      <p>Just last month Claudia gave birth to her second child, Samuel. She has currently paused her work due to maternity leave, but is taking time to create her dram fashion brand.</p>
+      <p><strong>Mobile:</strong> +49 069 1234567</p>
       </div>
 
       <div className="col-sm-9">

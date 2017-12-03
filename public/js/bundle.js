@@ -2502,12 +2502,12 @@ var Details3 = function (_React$Component) {
             _react2.default.createElement(
               'h4',
               { className: 'text-center' },
-              'Dr. Tom Winter'
+              'Dr. Claudia Klar'
             ),
             _react2.default.createElement(
               'p',
               { className: 'profile-img' },
-              _react2.default.createElement('img', { src: '/img/tom.png', className: 'img-responsive' })
+              _react2.default.createElement('img', { src: '/img/claudia.png', className: 'img-responsive' })
             ),
             _react2.default.createElement(
               'h4',
@@ -2517,7 +2517,7 @@ var Details3 = function (_React$Component) {
             _react2.default.createElement(
               'p',
               null,
-              'Tom did a course in Business Engineering studies at the Technical University Munich (TUM), and founded a startup right after graduating. He is currently looking for funding opportunities and is busy finding partners for his business. Being a digital native'
+              'Just last month Claudia gave birth to her second child, Samuel. She has currently paused her work due to maternity leave, but is taking time to create her dram fashion brand.'
             ),
             _react2.default.createElement(
               'p',
@@ -2527,7 +2527,7 @@ var Details3 = function (_React$Component) {
                 null,
                 'Mobile:'
               ),
-              ' +49 170 123456'
+              ' +49 069 1234567'
             )
           ),
           _react2.default.createElement(
