@@ -38,12 +38,12 @@ class Details1 extends React.Component {
               <div className="panel-body">
 
       <div className="section">
-                <h4>FUN SPONGE LTD</h4>
+                <h3>FUN SPONGE LTD</h3>
                 <p>We are looking for 50.000€ in order to buy a warehouse and cut our supply cost by 30%.</p>
-                <h5><strong>Credit Score:</strong> B</h5>
+                <h4><strong>Investment amount:</strong> 50.000€</h4>
+                <h4><strong>Credit Score:</strong> B</h4>
       </div>
 
-      <h4>Terms</h4>
       <div className="row terms-section">
 
       <div className="col-sm-3">

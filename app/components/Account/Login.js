@@ -21,7 +21,7 @@ class Login extends React.Component {
           <div className="panel-body">
             <Messages messages={this.props.messages}/>
             <form onSubmit={this.handleDbLogin.bind(this)}>
-              <button type="submit" className="btn center-block btn-success">Log in with Deusche Bank</button>
+              <button type="submit" className="btn center-block btn-primary btn-login">Log in with Deutsche Bank</button>
             </form>
             <div className="btn-toolbar text-center">
             </div>

@@ -6710,3 +6710,12 @@ textarea {
   font-size: 22px;
   color: #4caf4f; }
 
+.btn-login {
+  font-size: 22px;
+  border-radius: 6px;
+  padding: 10px 30px; }
+
+.section h3 + p {
+  margin-top: 20px;
+  margin-bottom: 40px; }
+

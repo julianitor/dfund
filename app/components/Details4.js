@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
 
-class Details3 extends React.Component {
+class Details4 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,10 +38,10 @@ class Details3 extends React.Component {
               <div className="panel-body">
 
       <div className="section">
-                <h3>Re-clothes GmbH</h3>
-                <p>What we want is to create a new business line to design and launch recycled homewear, so not only we can provide clothes but also eco-friendly homewear and continuing getting more respectful with our environment. </p>
-                <h4><strong>Investment amount:</strong> 200.000€</h4>
-                <h4><strong>Credit Score:</strong> A</h4>
+                <h3>Happy Smoothie Berlin</h3>
+                <p>We are looking for acquire new electric-motorcycle to get our fresh and nature smoothie to your location faster and easily. With this we are going to be able to get to AB area of Berlin</p>
+                <h4><strong>Investment amount:</strong> 10.000€</h4>
+                <h4><strong>Credit Score:</strong> D</h4>
       </div>
 
       <div className="row terms-section">
@@ -49,14 +49,14 @@ class Details3 extends React.Component {
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Interest rate</span>
-      <span className="terms-data">6,5%</span>
+      <span className="terms-data">7,7%</span>
       </p>
       </div>
 
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Return of the loan</span>
-      <span className="terms-data">36</span>
+      <span className="terms-data">12</span>
       <span className="terms-note">months</span>
       </p>
       </div>
@@ -64,16 +64,16 @@ class Details3 extends React.Component {
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Date posted</span>
-      <span className="terms-data">3</span>
-      <span className="terms-note">weeks ago</span>
+      <span className="terms-data">8</span>
+      <span className="terms-note">days ago</span>
       </p>
       </div>
 
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Total invested</span>
-      <span className="terms-data">57%</span>
-      <span className="terms-note">By 23 investor</span>
+      <span className="terms-data">16%</span>
+      <span className="terms-note">By 1 investors</span>
       </p>
       </div>
 
@@ -83,17 +83,18 @@ class Details3 extends React.Component {
       <div className="section">
       <h4>About the company</h4>
 
-<p>Re-clothes is a retail-store that distribute 100% recycled and high quality clothes in Germany. We want to look after of our environment bringing closer the possibility to have a eco-friendly clothes. As well we want to cut downs production-costs reusing recycled materials.</p>
+<p>Happy Smoothie Berlin is a bar where you can find smoothies and milkshakes only made with fresh and high quality products and organic fruits and vegetables as well.</p>
 
-<p>We started our business 2 years ago and since the first day, sales have been increasing constantly. </p>
+<p>You can find a selected and healthy smoothie menu but the customer can make their own mix, choosing different kind of ingredients and toppings.
+Our first bar was opened 3 years ago in Berlin and we opened another location in the same city 1 year ago.</p>
       </div>
 
       <div className="section">
       <h4>Investment</h4>
 
-<p>We want to go beyond and open a new homeware line, so our customers not only can wear themselves our recycled clothes but also wear their houses with our 100% recycled homewear.</p>
-<p>To lunch this new business line, we need to raise 200.000€. We will put the money for hire new designer and operational stuff to get as soon as possible this new business line at our store.</p>
-<p>So help us to be more eco-friendly with our Earth and support us with your investment.</p>
+<p>We are the most famous Smoothie Bar in Berlin and because of the huge demand and that we want to arrive to the most population as we can, we have decided to launch our delivery service.</p>
+<p>For being able to achieve it, we need 10.000€ that goes to buy new electrical motorcycles and to hire new drivers stuff.</p>
+<p>Let’s invest in us and you’ll never have to move around our bar to enjoy our delicious smoothies!</p>
       </div>
       
 
@@ -188,6 +189,4 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Details3);
-
-
+export default connect(mapStateToProps)(Details4);
