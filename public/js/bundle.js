@@ -328,6 +328,10 @@ var _reactRouter = require('react-router');
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+// window.addEventListener('message', function(event) {
+//   signIn(event.data);
+// }, false);
+
 // Link account
 function link(provider) {
   switch (provider) {
@@ -394,7 +398,7 @@ function fetchDBAuthorise(_ref) {
       if (response.ok) {
         console.log('ALL OK', url, response);
         return response.json().then(function (json) {
-          resolve({ window: window, config: config, requestToken: json, dispatch: dispatch });
+          resolve({ config: config, requestToken: json, dispatch: dispatch });
         });
       }
     }).catch(console.error);
@@ -406,6 +410,9 @@ function openPopup(_ref2) {
       config = _ref2.config,
       dispatch = _ref2.dispatch;
 
+  //const fetchUrl = url + qs.stringify(config, '&');
+  //console.log(fetchUrl)
+  //window.location= fetchUrl;
   return new Promise(function (resolve, reject) {
     var width = config.width || 500;
     var height = config.height || 500;
@@ -421,158 +428,51 @@ function openPopup(_ref2) {
       popup.document.body.innerHTML = 'Loading...';
     }
 
-    resolve({ window: popup, config: config, dispatch: dispatch });
+    console.log('resolving open');
+    resolve({ config: config, dispatch: dispatch, popup: popup });
   });
 }
 
-function getRequestToken(_ref3) {
-  var window = _ref3.window,
-      config = _ref3.config,
-      dispatch = _ref3.dispatch;
+function signIn(response) {
+  console.log('in signin', response);
+  var token = response.token,
+      user = response.user;
 
   return new Promise(function (resolve, reject) {
-    return fetch(config.url, {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        redirectUri: config.redirect_uri
-      })
-    }).then(function (response) {
-      if (response.ok) {
-        return response.json().then(function (json) {
-          resolve({ window: window, config: config, requestToken: json, dispatch: dispatch });
-        });
-      }
-    });
-  });
-}
-
-function pollPopup(_ref4) {
-  var window = _ref4.window,
-      config = _ref4.config,
-      requestToken = _ref4.requestToken,
-      dispatch = _ref4.dispatch;
-
-  return new Promise(function (resolve, reject) {
-    var redirectUri = _url2.default.parse(config.redirect_uri);
-    var redirectUriPath = redirectUri.host + redirectUri.pathname;
-
-    if (requestToken) {
-      window.location = config.authorizationUrl + '?' + _querystring2.default.stringify(requestToken);
-    }
-
-    var polling = setInterval(function () {
-      if (!window || window.closed) {
-        clearInterval(polling);
-      }
-      try {
-        var popupUrlPath = window.location.host + window.location.pathname;
-        if (popupUrlPath === redirectUriPath) {
-          if (window.location.search || window.location.hash) {
-            var query = _querystring2.default.parse(window.location.search.substring(1).replace(/\/$/, ''));
-            var hash = _querystring2.default.parse(window.location.hash.substring(1).replace(/[\/$]/, ''));
-            var params = Object.assign({}, query, hash);
-
-            if (params.error) {
-              dispatch({
-                type: 'OAUTH_FAILURE',
-                messages: [{ msg: params.error }]
-              });
-            } else {
-              resolve({ oauthData: params, config: config, window: window, interval: polling, dispatch: dispatch });
-            }
-          } else {
-            dispatch({
-              type: 'OAUTH_FAILURE',
-              messages: [{ msg: 'OAuth redirect has occurred but no query or hash parameters were found.' }]
-            });
-          }
-        }
-      } catch (error) {
-        // Ignore DOMException: Blocked a frame with origin from accessing a cross-origin frame.
-        // A hack to get around same-origin security policy errors in Internet Explorer.
-      }
-    }, 500);
-  });
-}
-
-function exchangeCodeForToken(_ref5) {
-  var oauthData = _ref5.oauthData,
-      config = _ref5.config,
-      window = _ref5.window,
-      interval = _ref5.interval,
-      dispatch = _ref5.dispatch;
-
-  return new Promise(function (resolve, reject) {
-    var data = Object.assign({}, oauthData, config);
-
-    return fetch(config.url, {
-      method: 'post',
-      headers: { 'Content-Type': 'application/json' },
-      credentials: 'same-origin', // By default, fetch won't send any cookies to the server
-      body: JSON.stringify(data)
-    }).then(function (response) {
-      if (response.ok) {
-        return response.json().then(function (json) {
-          resolve({ token: json.token, user: json.user, window: window, interval: interval, dispatch: dispatch });
-        });
-      } else {
-        return response.json().then(function (json) {
-          dispatch({
-            type: 'OAUTH_FAILURE',
-            messages: Array.isArray(json) ? json : [json]
-          });
-          closePopup({ window: window, interval: interval });
-        });
-      }
-    });
-  });
-}
-
-function signIn(_ref6) {
-  var token = _ref6.token,
-      user = _ref6.user,
-      window = _ref6.window,
-      interval = _ref6.interval,
-      dispatch = _ref6.dispatch;
-
-  return new Promise(function (resolve, reject) {
-    console.log(token, user);
-    dispatch({
+    console.log(token, user, 'signing in');
+    window.store.dispatch({
       type: 'OAUTH_SUCCESS',
       token: token,
       user: user
     });
     _reactCookie2.default.save('token', token, { expires: (0, _moment2.default)().add(1, 'hour').toDate() });
     _reactRouter.browserHistory.push('/');
-    resolve({ window: window, interval: interval });
+    //resolve({ popup, interval: interval });
   });
 }
 
-function closePopup(_ref7) {
-  var window = _ref7.window,
-      interval = _ref7.interval;
-
-  return new Promise(function (resolve, reject) {
-    clearInterval(interval);
-    window.close();
-    resolve();
-  });
-}
+//function closePopup({ popup, interval }) {
+//  return new Promise((resolve, reject) => {
+//    clearInterval(interval);
+//    console.log('attempt to close window');
+//    popup.close();
+//    resolve();
+//  });
+//}
 
 function dbLogin() {
   var dbConfig = {
     authorizationUrl: 'https://simulator-api.db.com/gw/oidc/authorize',
     client_id: '0d738e7c-b323-47cb-b77c-f56496250795',
     redirect_uri: 'http://localhost:3000/oauth',
-    response_type: 'code',
-    width: 580,
-    height: 400
+    response_type: 'code'
   };
   console.log(dbConfig);
 
   return function (dispatch) {
-    oauth2(dbConfig, dispatch).then(openPopup).then(pollPopup).then(exchangeCodeForToken).then(signIn).then(closePopup);
+    oauth2(dbConfig, dispatch).then(openPopup);
+    //.then(signIn)
+    //.then(closePopup);
   };
 }
 
@@ -2988,6 +2888,19 @@ var _routes2 = _interopRequireDefault(_routes);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var store = (0, _configureStore2.default)(window.INITIAL_STATE);
+window.addEventListener('message', function (event) {
+  console.log(event.data);
+  var _event$data = event.data,
+      token = _event$data.token,
+      user = _event$data.user;
+
+  store.dispatch({
+    type: 'OAUTH_SUCCESS',
+    token: token,
+    user: user
+  });
+  _reactRouter.browserHistory.push('/');
+}, false);
 
 _reactDom2.default.render(_react2.default.createElement(
   _reactRedux.Provider,

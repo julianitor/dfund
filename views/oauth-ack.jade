@@ -9,6 +9,6 @@ html
   body
     script.
       setTimeout(() => {
-        window.opener.postMessage({ token: "#{token}" }, '*')
+      window.opener.postMessage({ token: "#{token}", user: !{JSON.stringify(user)} }, '*')
         window.close()
       }, 500)

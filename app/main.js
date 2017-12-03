@@ -13,7 +13,7 @@ window.addEventListener('message', function(event) {
   store.dispatch({
     type: 'OAUTH_SUCCESS',
     token: token,
-    user: {}
+    user: user
   });
   browserHistory.push('/');
 }, false);

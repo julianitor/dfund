@@ -7,6 +7,7 @@ var request = require('request');
 var qs = require('querystring');
 var User = require('../models/User');
 var Bluebird = require('bluebird');
+var _ = require('lodash');
 
 var xrequest = Bluebird.promisify(request);
 
@@ -320,15 +321,16 @@ exports.authDB = function(req, res) {
       });
     })
     .then(({ user, dbToken }) => {
-      console.log(user)
+      console.log(user.body)
+      const rawUser = _.get(user, 'body.partners.0');
       var user = new User({
-        name: req.body.name,
-        email: 'test@gmail.com',
+        name: _.get(rawUser, 'naturalPerson.firstName') || 'Tom',
+        lastName: _.get(rawUser, 'naturalPerson.lastName'),
+        email: _.get(rawUser, 'emailAddresses.0', 'test@test.com'),
         dbToken
       });
       user.save(function(err) {
         res.render('oauth-ack', { token: generateToken(user), user: user });
-        //res.send({ token: generateToken(user), user: user });
       });
     })
     .catch(console.error);
