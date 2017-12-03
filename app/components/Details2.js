@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
 
-class Details1 extends React.Component {
+class Details2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,9 +38,9 @@ class Details1 extends React.Component {
               <div className="panel-body">
 
       <div className="section">
-                <h4>FUN SPONGE LTD</h4>
-                <p>We are looking for 50.000€ in order to buy a warehouse and cut our supply cost by 30%.</p>
-                <h5><strong>Credit Score:</strong> B</h5>
+                <h4>SUPER HERO DELIVERY GmbH</h4>
+                <p>We need 100.000€ for financing the expansion in the UK.</p>
+                <h5><strong>Credit Score:</strong> A</h5>
       </div>
 
       <h4>Terms</h4>
@@ -49,14 +49,14 @@ class Details1 extends React.Component {
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Interest rate</span>
-      <span className="terms-data">5,5%</span>
+      <span className="terms-data">6,5%</span>
       </p>
       </div>
 
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Return of the loan</span>
-      <span className="terms-data">30</span>
+      <span className="terms-data">60</span>
       <span className="terms-note">months</span>
       </p>
       </div>
@@ -72,7 +72,7 @@ class Details1 extends React.Component {
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Total invested</span>
-      <span className="terms-data">30%</span>
+      <span className="terms-data">88%</span>
       <span className="terms-note">By 4 investors</span>
       </p>
       </div>
@@ -83,19 +83,20 @@ class Details1 extends React.Component {
       <div className="section">
       <h4>About the company</h4>
 
-<p>Fun sponge was born in 2012 from the idea of 2 friends willing to bring a bit of joy in the sponge market. </p>
+      <img src="/img/project-2-details.jpeg" className="pull-left" style={{maxWidth: '20%', marginRight: 20}}/>
+<p>Super Hero Delivery is the fastest food delivery in the world! With our amazing staff we will be able to bring the food to your location in less than 60 seconds!</p>
 
-<p>We only use recycled materials and provide a variety very funny sponges that you can use yourself or give as a gift to your friends and family. </p>
+<p>If it takes more than that you don’t have to pay for your food.</p>
 
-<p>After the first year we were already break-even and since then we kept growing by 20% yearly.</p>
+<p>We are an established company already, we have been on business since 5 years and we ar constantly growing.</p>
       </div>
 
       <div className="section">
       <h4>Investment</h4>
 
-<p>We are going to buy a new warehouse just 20 mins away from Berlin and it will cut our costs by 30% allowing us to improve our productivity and to give a better and quicker service.</p>
-<p>We are already profitable, so it won’t be a problem to give back the loan in 30 month with interests.</p>
-<p>Looking forward to give you all the information you need for this investment.</p>
+<p>After being threaders in Germany for 5 years we are now going to expand our business to the UK, the most interesting country for food delivery. </p>
+<p>In order to do that, we will need 100.000€. We will use the money to hire new staff and affiliate 1000 new restaurants in the areas of London, Manchester and Liverpool.</p>
+<p>Be an hero and invest on us.</p>
       </div>
       
 
@@ -190,4 +191,5 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Details1);
+export default connect(mapStateToProps)(Details2);
+

@@ -56,7 +56,7 @@ class Projects extends React.Component {
 
             <div className="panel">
               <div className="panel-body">
-                <h3>SUPER HERO DELIVERY LTD</h3>
+                <h3>SUPER HERO DELIVERY GmbH</h3>
                 <div className="row">
                   <div className="col-sm-3"><img src="img/project-2.jpeg" className="img-responsive"/>
       <p className="btn-details">
@@ -95,6 +95,56 @@ class Projects extends React.Component {
                 </div>
               </div>
             </div>
+
+
+
+
+            <div className="panel">
+              <div className="panel-body">
+                <h3>Re-clothes: Recycled clothes store</h3>
+                <div className="row">
+                  <div className="col-sm-3"><img src="img/project-3.jpeg" className="img-responsive"/>
+      <p className="btn-details">
+      <Link to="/details/3">
+        <button className="btn btn-primary btn-block">Details</button>
+      </Link>
+      </p>
+        </div>
+                  <div className="col-sm-6">
+                    <p>What we want is to create a new business line to design and launch recycled homewear, so not only we can provide clothes but also eco-friendly homewear and continuing getting more respectful with our environment.</p>
+                    <p><strong>Investment amount:</strong> 30.000€</p>
+                    <p><strong>Credit Score:</strong> A</p>
+                  </div>
+                  <div className="col-sm-3 terms">
+      <p className="text-center">Total funded</p>
+<div className="flex-wrapper">
+  <div className="single-chart">
+    <svg viewBox="0 0 36 36" className="circular-chart blue">
+      <path className="circle-bg"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+      <path className="circle"
+        strokeDasharray="16, 100"
+        d="M18 2.0845
+          a 15.9155 15.9155 0 0 1 0 31.831
+          a 15.9155 15.9155 0 0 1 0 -31.831"
+      />
+      <text x="18" y="20.35" className="percentage">16%</text>
+    </svg>
+  </div>
+</div>
+      <p className="text-center">By 1 investors</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
 
 
             <div className="panel">
@@ -143,49 +193,6 @@ class Projects extends React.Component {
               </div>
             </div>
 
-
-
-            <div className="panel">
-              <div className="panel-body">
-                <h3>Re-clothes: Recycled clothes store</h3>
-                <div className="row">
-                  <div className="col-sm-3"><img src="img/project-3.jpeg" className="img-responsive"/>
-      <p className="btn-details">
-      <Link to="/details/3">
-        <button className="btn btn-primary btn-block">Details</button>
-      </Link>
-      </p>
-        </div>
-                  <div className="col-sm-6">
-                    <p>What we want is to create a new business line to design and launch recycled homewear, so not only we can provide clothes but also eco-friendly homewear and continuing getting more respectful with our environment.</p>
-                    <p><strong>Investment amount:</strong> 30.000€</p>
-                    <p><strong>Credit Score:</strong> A</p>
-                  </div>
-                  <div className="col-sm-3 terms">
-      <p className="text-center">Total funded</p>
-<div className="flex-wrapper">
-  <div className="single-chart">
-    <svg viewBox="0 0 36 36" className="circular-chart blue">
-      <path className="circle-bg"
-        d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-      />
-      <path className="circle"
-        strokeDasharray="16, 100"
-        d="M18 2.0845
-          a 15.9155 15.9155 0 0 1 0 31.831
-          a 15.9155 15.9155 0 0 1 0 -31.831"
-      />
-      <text x="18" y="20.35" className="percentage">16%</text>
-    </svg>
-  </div>
-</div>
-      <p className="text-center">By 1 investors</p>
-                  </div>
-                </div>
-              </div>
-            </div>
 
 
           </div>
