@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux'
 import Messages from './Messages';
 
-class Details1 extends React.Component {
+class Details2 extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -38,9 +38,9 @@ class Details1 extends React.Component {
               <div className="panel-body">
 
       <div className="section">
-                <h4>FUN SPONGE LTD</h4>
-                <p>We are looking for 50.000€ in order to buy a warehouse and cut our supply cost by 30%.</p>
-                <h5><strong>Credit Score:</strong> B</h5>
+                <h4>SUPER HERO DELIVERY GmbH</h4>
+                <p>We need 100.000€ for financing the expansion in the UK.</p>
+                <h5><strong>Credit Score:</strong> A</h5>
       </div>
 
       <h4>Terms</h4>
@@ -49,14 +49,14 @@ class Details1 extends React.Component {
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Interest rate</span>
-      <span className="terms-data">5,5%</span>
+      <span className="terms-data">6,5%</span>
       </p>
       </div>
 
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Return of the loan</span>
-      <span className="terms-data">30</span>
+      <span className="terms-data">60</span>
       <span className="terms-note">months</span>
       </p>
       </div>
@@ -72,7 +72,7 @@ class Details1 extends React.Component {
       <div className="col-sm-3">
       <p>
       <span className="terms-title">Total invested</span>
-      <span className="terms-data">30%</span>
+      <span className="terms-data">88%</span>
       <span className="terms-note">By 4 investors</span>
       </p>
       </div>
@@ -83,19 +83,17 @@ class Details1 extends React.Component {
       <div className="section">
       <h4>About the company</h4>
 
-<p>Fun sponge was born in 2012 from the idea of 2 friends willing to bring a bit of joy in the sponge market. </p>
+<p>Re-clothes is a retail-store that distribute 100% recycled and high quality clothes in Germany. We want to look after of our environment bringing closer the possibility to have a eco-friendly clothes. As well we want to cut downs production-costs reusing recycled materials.</p>
 
-<p>We only use recycled materials and provide a variety very funny sponges that you can use yourself or give as a gift to your friends and family. </p>
-
-<p>After the first year we were already break-even and since then we kept growing by 20% yearly.</p>
+<p>We started our business 2 years ago and since the first day, sales have been increasing constantly. </p>
       </div>
 
       <div className="section">
       <h4>Investment</h4>
 
-<p>We are going to buy a new warehouse just 20 mins away from Berlin and it will cut our costs by 30% allowing us to improve our productivity and to give a better and quicker service.</p>
-<p>We are already profitable, so it won’t be a problem to give back the loan in 30 month with interests.</p>
-<p>Looking forward to give you all the information you need for this investment.</p>
+<p>We want to go beyond and open a new homeware line, so our customers not only can wear themselves our recycled clothes but also wear their houses with our 100% recycled homewear.</p>
+<p>To lunch this new business line, we need to raise 200.000€. We will put the money for hire new designer and operational stuff to get as soon as possible this new business line at our store.</p>
+<p>So help us to be more eco-friendly with our Earth and support us with your investment.</p>
       </div>
       
 
@@ -190,4 +188,6 @@ const mapStateToProps = (state) => {
   };
 };
 
-export default connect(mapStateToProps)(Details1);
+export default connect(mapStateToProps)(Details2);
+
+
