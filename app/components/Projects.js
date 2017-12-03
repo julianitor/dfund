@@ -30,14 +30,55 @@ class Projects extends React.Component {
                 5.000€ - 50.0000€
 
                 <h5>Business</h5>
-                <p><input type="checkbox"/> Technology</p>
-                <p><input type="checkbox"/> Logistics</p>
-                <p><input type="checkbox"/> Cryptocurrency</p>
+
+      <p>
+      <label className="checkbox-container">Technology
+      <input type="checkbox" />
+      <span className="checkmark"></span>
+      </label>
+      </p>
+
+
+      <p>
+      <label className="checkbox-container">Logistics
+      <input type="checkbox" />
+      <span className="checkmark"></span>
+      </label>
+      </p>
+
+
+      <p>
+      <label className="checkbox-container">Cryptocurrency
+      <input type="checkbox" />
+      <span className="checkmark"></span>
+      </label>
+      </p>
 
                 <h5>Credit score</h5>
-                <p><input type="checkbox"/> A+</p>
-                <p><input type="checkbox"/> B-</p>
-                <p><input type="checkbox"/> C++</p>
+
+
+      <p>
+      <label className="checkbox-container">A+
+      <input type="checkbox" />
+      <span className="checkmark"></span>
+      </label>
+      </p>
+
+
+      <p>
+      <label className="checkbox-container">B-
+      <input type="checkbox" />
+      <span className="checkmark"></span>
+      </label>
+      </p>
+
+
+      <p>
+      <label className="checkbox-container">C++
+      <input type="checkbox" />
+      <span className="checkmark"></span>
+      </label>
+      </p>
 
                 <h5>Country</h5>
                 <select className="form-control">

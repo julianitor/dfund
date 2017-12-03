@@ -3896,20 +3896,35 @@ var Projects = function (_React$Component) {
                 _react2.default.createElement(
                   'p',
                   null,
-                  _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' Technology'
+                  _react2.default.createElement(
+                    'label',
+                    { className: 'checkbox-container' },
+                    'Technology',
+                    _react2.default.createElement('input', { type: 'checkbox' }),
+                    _react2.default.createElement('span', { className: 'checkmark' })
+                  )
                 ),
                 _react2.default.createElement(
                   'p',
                   null,
-                  _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' Logistics'
+                  _react2.default.createElement(
+                    'label',
+                    { className: 'checkbox-container' },
+                    'Logistics',
+                    _react2.default.createElement('input', { type: 'checkbox' }),
+                    _react2.default.createElement('span', { className: 'checkmark' })
+                  )
                 ),
                 _react2.default.createElement(
                   'p',
                   null,
-                  _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' Cryptocurrency'
+                  _react2.default.createElement(
+                    'label',
+                    { className: 'checkbox-container' },
+                    'Cryptocurrency',
+                    _react2.default.createElement('input', { type: 'checkbox' }),
+                    _react2.default.createElement('span', { className: 'checkmark' })
+                  )
                 ),
                 _react2.default.createElement(
                   'h5',
@@ -3919,20 +3934,35 @@ var Projects = function (_React$Component) {
                 _react2.default.createElement(
                   'p',
                   null,
-                  _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' A+'
+                  _react2.default.createElement(
+                    'label',
+                    { className: 'checkbox-container' },
+                    'A+',
+                    _react2.default.createElement('input', { type: 'checkbox' }),
+                    _react2.default.createElement('span', { className: 'checkmark' })
+                  )
                 ),
                 _react2.default.createElement(
                   'p',
                   null,
-                  _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' B-'
+                  _react2.default.createElement(
+                    'label',
+                    { className: 'checkbox-container' },
+                    'B-',
+                    _react2.default.createElement('input', { type: 'checkbox' }),
+                    _react2.default.createElement('span', { className: 'checkmark' })
+                  )
                 ),
                 _react2.default.createElement(
                   'p',
                   null,
-                  _react2.default.createElement('input', { type: 'checkbox' }),
-                  ' C++'
+                  _react2.default.createElement(
+                    'label',
+                    { className: 'checkbox-container' },
+                    'C++',
+                    _react2.default.createElement('input', { type: 'checkbox' }),
+                    _react2.default.createElement('span', { className: 'checkmark' })
+                  )
                 ),
                 _react2.default.createElement(
                   'h5',
