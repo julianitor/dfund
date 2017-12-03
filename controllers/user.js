@@ -7,8 +7,11 @@ var request = require('request');
 var qs = require('querystring');
 var User = require('../models/User');
 var Bluebird = require('bluebird');
+var _ = require('lodash');
 
 var xrequest = Bluebird.promisify(request);
+
+const BASE_URL = 'https://simulator-api.db.com/gw/dbapi/';
 
 function generateToken(user) {
   var payload = {
@@ -302,13 +305,33 @@ exports.authDB = function(req, res) {
   const params = {
     grant_type: 'authorization_code',
     code,
-    redirect_uri: 'http://localhost:3000/oauth'
+    redirect_uri: 'http://d-fund.de/oauth'
   }
 
-  xrequest({ method: 'POST', url: accessTokenUrl, qs: params, headers })
+  xrequest({ method: 'POST', url: accessTokenUrl, qs: params, headers, json: true })
     .then(({ body }) => {
-      console.log(body)
-      res.json(body);
+      console.log(body.access_token)
+      const dbToken = body.access_token;
+      const headers = {
+        Authorization: 'Bearer ' + dbToken
+      };
+      return Bluebird.props({
+        user: xrequest({ method: 'GET', url: BASE_URL + 'v2/partners', headers }),
+        dbToken
+      });
+    })
+    .then(({ user, dbToken }) => {
+      console.log(user.body)
+      const rawUser = _.get(user, 'body.partners.0');
+      var user = new User({
+        name: _.get(rawUser, 'naturalPerson.firstName') || 'Tom',
+        lastName: _.get(rawUser, 'naturalPerson.lastName'),
+        email: _.get(rawUser, 'emailAddresses.0', 'test@test.com'),
+        dbToken
+      });
+      user.save(function(err) {
+        res.render('oauth-ack', { token: generateToken(user), user: user });
+      });
     })
     .catch(console.error);
 };
