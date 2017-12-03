@@ -24,6 +24,8 @@ var userSchema = new mongoose.Schema({
   google: String,
   github: String,
   vk: String,
+  picture: String,
+  solvencyScore: String,
   dbToken: String
 }, schemaOptions);
 
