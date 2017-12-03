@@ -323,14 +323,14 @@ exports.authDB = function(req, res) {
       });
     })
     .then(({ user, solvency, ageCertificate, dbToken }) => {
-      const rawUser = _.get(user, 'body.partners.0');
-      const solvencyScore = _.get(solvency, 'body.score');
-      const certificate = _.get(ageCertificate, 'body.certified');
+      const rawUser = _.get(user, 'partners.0');
+      const solvencyScore = _.get(solvency, 'score');
+      const certificate = _.get(ageCertificate, 'certified');
       console.log(user.body, solvency.body, ageCertificate.body)
       console.log(rawUser, solvencyScore, certificate)
       var user = new User({
-        name: _.get(rawUser, 'naturalPerson.firstName') || 'Tom',
-        picture: '/img/tom.png',
+        name: _.get(rawUser, 'naturalPerson.firstName') || 'Kim',
+        picture: '/img/kim.png',
         solvencyScore: solvencyScore,
         lastName: _.get(rawUser, 'naturalPerson.lastName'),
         email: _.get(rawUser, 'emailAddresses.0', 'test@test.com'),
