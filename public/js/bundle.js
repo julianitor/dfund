@@ -1595,8 +1595,16 @@ var Details1 = function (_React$Component) {
   }
 
   _createClass(Details1, [{
+    key: 'invest',
+    value: function invest() {
+      $('#investModal').modal('hide');
+      $('#successModal').modal('show');
+    }
+  }, {
     key: 'render',
     value: function render() {
+      var _this2 = this;
+
       return _react2.default.createElement(
         'div',
         { className: 'container' },
@@ -1617,19 +1625,9 @@ var Details1 = function (_React$Component) {
               _react2.default.createElement('img', { src: '/img/tom.png', className: 'img-responsive' })
             ),
             _react2.default.createElement(
-              'h5',
-              null,
-              'Ocupation:'
-            ),
-            _react2.default.createElement(
-              'p',
+              'h4',
               null,
               'Entrepreneur'
-            ),
-            _react2.default.createElement(
-              'h5',
-              null,
-              'Bio:'
             ),
             _react2.default.createElement(
               'p',
@@ -1639,7 +1637,12 @@ var Details1 = function (_React$Component) {
             _react2.default.createElement(
               'p',
               null,
-              'Mobile: +49 170 123456'
+              _react2.default.createElement(
+                'strong',
+                null,
+                'Mobile:'
+              ),
+              ' +49 170 123456'
             )
           ),
           _react2.default.createElement(
@@ -1665,7 +1668,7 @@ var Details1 = function (_React$Component) {
                     'We are looking for 50.000\u20AC in order to buy a warehouse and cut our supply cost by 30%.'
                   ),
                   _react2.default.createElement(
-                    'p',
+                    'h5',
                     null,
                     _react2.default.createElement(
                       'strong',
@@ -1674,6 +1677,11 @@ var Details1 = function (_React$Component) {
                     ),
                     ' B'
                   )
+                ),
+                _react2.default.createElement(
+                  'h4',
+                  null,
+                  'Terms'
                 ),
                 _react2.default.createElement(
                   'div',
@@ -1812,6 +1820,135 @@ var Details1 = function (_React$Component) {
                     'p',
                     null,
                     'Looking forward to give you all the information you need for this investment.'
+                  )
+                ),
+                _react2.default.createElement(
+                  'div',
+                  { className: 'actions' },
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'text-right' },
+                    _react2.default.createElement(
+                      'button',
+                      { type: 'button', className: 'btn btn-primary btn-lg', 'data-toggle': 'modal', 'data-target': '#investModal' },
+                      'Invest'
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'modal fade', id: 'investModal', tabindex: '-1', role: 'dialog' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'modal-dialog', role: 'document' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'modal-header' },
+                          _react2.default.createElement(
+                            'button',
+                            { type: 'button', className: 'close', 'data-dismiss': 'modal' },
+                            _react2.default.createElement(
+                              'span',
+                              null,
+                              '\xD7'
+                            )
+                          ),
+                          _react2.default.createElement(
+                            'h4',
+                            { className: 'modal-title', id: 'myModalLabel' },
+                            'Invest'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'modal-body' },
+                          _react2.default.createElement(
+                            'div',
+                            { className: 'form-inline' },
+                            _react2.default.createElement(
+                              'h4',
+                              null,
+                              'Enter amount: ',
+                              _react2.default.createElement('input', { value: 2000, className: 'form-control', style: { fontSize: 18 } }),
+                              '\u20AC'
+                            )
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'modal-footer' },
+                          _react2.default.createElement(
+                            'button',
+                            { type: 'button', className: 'btn btn-default', 'data-dismiss': 'modal' },
+                            'Close'
+                          ),
+                          _react2.default.createElement(
+                            'button',
+                            { type: 'button', className: 'btn btn-success', onClick: function onClick() {
+                                return _this2.invest();
+                              } },
+                            'Invest'
+                          )
+                        )
+                      )
+                    )
+                  ),
+                  _react2.default.createElement(
+                    'div',
+                    { className: 'modal fade', id: 'successModal', tabindex: '-1', role: 'dialog' },
+                    _react2.default.createElement(
+                      'div',
+                      { className: 'modal-dialog', role: 'document' },
+                      _react2.default.createElement(
+                        'div',
+                        { className: 'modal-content' },
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'modal-header' },
+                          _react2.default.createElement(
+                            'button',
+                            { type: 'button', className: 'close', 'data-dismiss': 'modal' },
+                            _react2.default.createElement(
+                              'span',
+                              null,
+                              '\xD7'
+                            )
+                          ),
+                          _react2.default.createElement(
+                            'h4',
+                            { className: 'modal-title', id: 'myModalLabel' },
+                            'Success!'
+                          )
+                        ),
+                        _react2.default.createElement(
+                          'div',
+                          { className: 'modal-body' },
+                          _react2.default.createElement(
+                            'div',
+                            { className: 'form-inline' },
+                            _react2.default.createElement(
+                              'div',
+                              { className: 'check_mark' },
+                              _react2.default.createElement(
+                                'div',
+                                { className: 'sa-icon sa-success animate' },
+                                _react2.default.createElement('span', { className: 'sa-line sa-tip animateSuccessTip' }),
+                                _react2.default.createElement('span', { className: 'sa-line sa-long animateSuccessLong' }),
+                                _react2.default.createElement('div', { className: 'sa-placeholder' }),
+                                _react2.default.createElement('div', { className: 'sa-fix' })
+                              )
+                            ),
+                            _react2.default.createElement(
+                              'p',
+                              { className: 'congrats' },
+                              'Congratulations, you\'re an investor!'
+                            )
+                          )
+                        )
+                      )
+                    )
                   )
                 )
               )
