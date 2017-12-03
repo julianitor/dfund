@@ -36,6 +36,7 @@
     "nodemailer": "^2.3.0",
     "nodemon": "^1.9.1",
     "npm-run-all": "^1.8.0",
+    "odometer": "^0.4.8",
     "rc-slider": "^8.5.0",
     "react": "15.1.0",
     "react-cookie": "^0.4.5",
