@@ -305,7 +305,7 @@ exports.authDB = function(req, res) {
   const params = {
     grant_type: 'authorization_code',
     code,
-    redirect_uri: 'http://localhost:3000/oauth'
+    redirect_uri: 'http://d-fund.de/oauth'
   }
 
   xrequest({ method: 'POST', url: accessTokenUrl, qs: params, headers, json: true })

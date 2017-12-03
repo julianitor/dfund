@@ -464,7 +464,7 @@ function dbLogin() {
   var dbConfig = {
     authorizationUrl: 'https://simulator-api.db.com/gw/oidc/authorize',
     client_id: '0d738e7c-b323-47cb-b77c-f56496250795',
-    redirect_uri: 'http://localhost:3000/oauth',
+    redirect_uri: 'http://d-fund.de/oauth',
     response_type: 'code'
   };
   console.log(dbConfig);
@@ -652,40 +652,12 @@ var Login = function (_React$Component) {
               'form',
               { onSubmit: this.handleDbLogin.bind(this) },
               _react2.default.createElement(
-                'legend',
-                null,
-                'Log In'
-              ),
-              _react2.default.createElement(
                 'button',
-                { type: 'submit', className: 'btn btn-success' },
+                { type: 'submit', className: 'btn center-block btn-success' },
                 'Log in with Deusche Bank'
               )
             ),
-            _react2.default.createElement(
-              'div',
-              { className: 'hr-title' },
-              _react2.default.createElement(
-                'span',
-                null,
-                'or'
-              )
-            ),
             _react2.default.createElement('div', { className: 'btn-toolbar text-center' })
-          )
-        ),
-        _react2.default.createElement(
-          'p',
-          { className: 'text-center' },
-          'Don\'t have an account? ',
-          _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/signup' },
-            _react2.default.createElement(
-              'strong',
-              null,
-              'Sign up'
-            )
           )
         )
       );
@@ -2899,7 +2871,7 @@ window.addEventListener('message', function (event) {
     token: token,
     user: user
   });
-  _reactRouter.browserHistory.push('/');
+  _reactRouter.browserHistory.push('/projects');
 }, false);
 
 _reactDom2.default.render(_react2.default.createElement(

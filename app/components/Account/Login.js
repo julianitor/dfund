@@ -21,17 +21,12 @@ class Login extends React.Component {
           <div className="panel-body">
             <Messages messages={this.props.messages}/>
             <form onSubmit={this.handleDbLogin.bind(this)}>
-              <legend>Log In</legend>
-              <button type="submit" className="btn btn-success">Log in with Deusche Bank</button>
+              <button type="submit" className="btn center-block btn-success">Log in with Deusche Bank</button>
             </form>
-            <div className="hr-title"><span>or</span></div>
             <div className="btn-toolbar text-center">
             </div>
           </div>
         </div>
-        <p className="text-center">
-          Don't have an account? <Link to="/signup"><strong>Sign up</strong></Link>
-        </p>
       </div>
     );
   }

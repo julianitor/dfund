@@ -134,7 +134,7 @@ export function dbLogin() {
   const dbConfig = {
     authorizationUrl: 'https://simulator-api.db.com/gw/oidc/authorize',
     client_id: '0d738e7c-b323-47cb-b77c-f56496250795',
-    redirect_uri: 'http://localhost:3000/oauth',
+    redirect_uri: 'http://d-fund.de/oauth',
     response_type: 'code',
   };
   console.log(dbConfig)

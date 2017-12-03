@@ -15,7 +15,7 @@ window.addEventListener('message', function(event) {
     token: token,
     user: user
   });
-  browserHistory.push('/');
+  browserHistory.push('/projects');
 }, false);
 
 ReactDOM.render(
